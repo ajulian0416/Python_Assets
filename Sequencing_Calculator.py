@@ -1,20 +1,21 @@
 import sys,argparse
 
 usage = """
-Version 0.1.1
-Date 1/20/21
-Author A. Julian
+Sequencing_Calculator
+Version\t\t0.1.1
+Date\t\t1/20/21
+Author\t\tA. Julian
 
 This is a tool used to determine how many cells were in a culture based on the mass of a DNA pellet,
 or how many cells are required to obtain a specific amount of DNA for sequencing.
 
--n | --count\t The number of cells present in the culture
--c | --content\t [optional] The GC content of the genome (default: .41)
--l | --length\t The length of the the organisms genome
--w | --ploidy\t The number of copies of chromosomes (default: 1, haploid)
--p | --pellet\t The mass of the DNA pellet [grams]
--m | --mass\t The desired amount of mass [grams]
--s | --sequencer\t [optional] The sequencer that is to be used {nanopore, illumina}
+-n | --count\t\tThe number of cells present in the culture
+-c | --content\t\t[optional] The GC content of the genome (default: .41)
+-l | --length\t\tThe length of the the organisms genome
+-w | --ploidy\t\tThe number of copies of chromosomes (default: 1, haploid)
+-p | --pellet\t\tThe mass of the DNA pellet [grams]
+-m | --mass\t\tThe desired amount of mass [grams]
+-s | --sequencer\t[optional] The sequencer that is to be used {nanopore, illumina}
 
 Examples
 
@@ -30,8 +31,9 @@ Sequencing_Calculator.py -l 2.5*10**6 -m 1.5
 
 if len(sys.argv) == 1:
     print(usage)
+    sys.exit()
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(usage=usage)
 parser.add_argument("-n","--count",type=float)
 parser.add_argument("-c","--content",type=float)
 parser.add_argument("-l","--length",type=float)
